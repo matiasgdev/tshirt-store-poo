@@ -102,7 +102,7 @@
       $query = "INSERT INTO products 
             VALUES (NULL, '{$this->getCategoryId()}', '{$this->getName()}', 
             '{$this->getDescription()}', {$this->getPrice()}, {$this->getStock()},
-            NULL, CURDATE(), NULL);"; 
+            NULL, CURDATE(), '{$this->getImage()}');"; 
 
       $save = $this->db->query($query);
 

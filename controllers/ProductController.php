@@ -39,7 +39,7 @@
         $price = isset($_POST['price']) ? $_POST['price'] : false;
         $stock = isset($_POST['stock']) ? $_POST['stock'] : false;
 
-        // $image = isset($_POST['image']) ? $_POST['image'] : false;
+
 
         if ($name and $description and $price and $stock and $category) {
 
@@ -51,8 +51,42 @@
           $product->setDescription($description);
           $product->setPrice($price);
           $product->setStock($stock);
-          //$product->setImage($image);
+          
+          //upload image
+          $image = $_FILES['image'];
+          $imageName = $image['name'];
+          $mimeType = $image['type'];
 
+          //extension file
+          $searchExtensionImage = str_split($imageName, strpos($imageName, '.') + 1);
+          $extensionImage = $searchExtensionImage[1];
+
+          //new image name
+          $imageNameHashed = md5($imageName) . '.' .$extensionImage;
+
+
+          if ($mimeType == 'image/jpg' || 
+              $mimeType == 'image/jpeg' || 
+              $mimeType == 'image/png' || 
+              $mimeType == 'image/gif') {
+
+            // if directory not exists
+            if (!is_dir('uploads/images')) {
+              mkdir('uploads/images', 0777, true);
+            }
+            // save image
+            move_uploaded_file($image['tmp_name'], 'uploads/images/'.$imageNameHashed);
+
+            //set image to object
+            $product->setImage($imageNameHashed);
+
+          } else {
+            $_SESSION['product-error'] = 'Inserción fallida. No se puede ingresar ese tipo de archivo.';
+            header("Location:". BASE_URL . 'product/create' );
+            return;
+          }
+
+          // save
           $productIsSaved = $product->save();
 
           if ($productIsSaved) {
@@ -60,17 +94,19 @@
             require_once 'views/product/create.php';
           } else {
             $_SESSION['product-error'] = 'Inserción fallida. No se pudo ingresar este producto.';
+            header("Location:". BASE_URL . 'product/create' );
+            return;
           }
 
+        } else {
+          $_SESSION['product-error'] = 'Inserción fallida. Ingrese todos los datos.';
+          header("Location:". BASE_URL . 'product/create' );
+          return;
         }
-
-      } else {
-        $_SESSION['product-error'] = 'Inserción fallida. Ingrese todos los datos.';
-      }
 
       header("Refresh: 2, URL=". BASE_URL . 'product/management' );
 
+      }
     }
-  }
-
+}
 ?>

@@ -1,5 +1,7 @@
 <h1 class="Main__main--title"> Crear nuevos productos </h1>
 
+
+<!-- insert messages validators -->
 <?php  if (isset($_SESSION['product'])): ?>
 
   <span> Producto creado con éxito </span>
@@ -11,8 +13,9 @@
 <?php endif; ?>
 
 <form 
-  action="<?= BASE_URL ?>/product/save"
+  action="<?= BASE_URL ?>product/save"
   method="POST"
+  enctype="multipart/form-data"
 >
   <label for="name"> Nombre </label> <br/>
   <input type="text" name="name" autocomplete="off" > <br/>
@@ -43,4 +46,6 @@
 
 </form>
 
-<?php Utils::deleteSession('category-creation') ?>
+<!-- delete messages -->
+<?php Utils::deleteSession('product'); ?>
+<?php Utils::deleteSession('product-error'); ?>
