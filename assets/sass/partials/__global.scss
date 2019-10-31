@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  border-collapse: collapse;
+  //border: 0.5px solid red;
+}
+a {
+  text-decoration: none;
+}
+
+body, html {
+  font-size: 20px;
+}
+
+$f-primary: 'Lato', sans-serif;
+$fc-primary: rgb(42, 42, 42);
+$fc-secondary: rgb(230,230,230);
+
+$b-primary: rgb(241, 240, 240);
+$b-secondary: rgb(30, 91, 133);
+
+$btn-bg-primary: rgb(54, 124, 54);
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
+}
+
+
+
+
+
+

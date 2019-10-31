@@ -1,0 +1,19 @@
+.Header {
+  background-image: linear-gradient(180deg, #d6d6d696, #4c3b3b8c), url(../img/hero.jpg);
+  background-position: center, center;
+  background-attachment: scroll, scroll;
+  background-size: cover, cover;
+  padding: 1rem 0;
+  &__hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+  &__hero--title {
+    font-family: $f-primary;
+    font-size: 3rem;
+    color: $fc-secondary;
+
+  } 
+
+}

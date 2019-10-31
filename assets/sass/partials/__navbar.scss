@@ -1,0 +1,32 @@
+$navHeight: 50px;
+
+.Nav {
+  height: $navHeight;
+  background-color: $b-secondary;
+  font-family: $f-primary;
+  &__list {
+    line-height: $navHeight;
+    display: flex;
+    &--link {
+      line-height: $navHeight;
+      flex-basis: 15%;
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+      line-height: $navHeight;
+      color: $fc-secondary;
+      text-align: center;
+      text-transform: lowercase;
+      letter-spacing: 1px;
+      &:hover {
+        background: mix(black, $b-secondary, 10%);
+      }
+    }
+  }
+}
+
+.link-actually {
+  background-color: rgb(30, 91, 133);
+  
+}

@@ -1,0 +1,136 @@
+.Main {
+  display: flex;
+  font-family: $f-primary;
+  height: 100vh;
+  overflow-y: scroll;
+  
+  &__aside {
+     flex-basis: 25%;
+     box-shadow: 5px 0px 10px rgba(gray,0.1);
+    &__block {
+      padding-left: 1rem;
+      h2 {
+        text-align: left;
+        margin: 1rem 0;
+      }
+      form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        > * {
+          align-self: flex-start;
+        }
+        label {
+          margin-bottom: .2rem;
+        }
+        input {
+          height: 1.3rem;
+          padding: .1rem .3rem;
+          margin-bottom: .5rem;
+        }
+        button {
+          width: 120px;
+          padding: .2rem .5rem;
+          cursor: pointer;
+          background-color: $btn-bg-primary;
+          outline: none;
+          color: white;
+          border: 3px solid mix(white, $btn-bg-primary, 10%);
+        }
+      }
+    }
+  }
+
+  &__main {
+    padding: 2rem;
+    width: 100%;
+    &--title {
+      text-align: center;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #fff0f0;
+      margin-bottom: 2rem;
+      color: $b-secondary;
+    }
+    &--table {
+      margin: 0 auto;
+      width: 80%;
+      box-shadow: 0px 0px 13px rgba(105, 105, 105, 0.191);
+      thead {
+        background-color: rgb(49, 49, 49);
+        color: $fc-secondary;
+      }
+      td, th {
+        padding: .2em;
+        text-align: center;
+        
+      }
+      tbody {
+        color: mix(white,$fc-primary, 25%);
+        tr:nth-child(even){
+          background-color: rgba(221, 218, 218, 0.657);
+        }
+      }
+      &--idrow {
+        width: 60px;
+      }
+    }
+    &--button {
+      display: inline-block;
+      text-align: center;
+      margin: .3rem;
+      margin-left: 10%;
+      font-size: .6rem;
+      width: auto;
+      padding: 0.2rem 0.4rem;
+      cursor: pointer;
+      background-color: #367c36;
+      color: rgb(241, 239, 239);
+      border: 3px solid #5b815b81;
+      border-radius: 4px;
+      &:hover {
+        background-color: mix(black,#367c36, 10%);
+      }
+    }
+  }
+  
+  &__products {
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap;
+    &--item {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: .5rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(gray,0.1);
+      padding: 1rem;
+      img {
+        margin-bottom: .3rem;
+      }
+      &--title {
+        font-size: 1rem;
+        margin-bottom: .5rem;
+      }
+      &--price {
+        font-size: .7rem;
+      }
+      &--link {
+        text-align: center;
+        margin: .3rem 0;
+        font-size: .7rem;
+        width: 120px;
+        padding: 0.2rem 0.5rem;
+        cursor: pointer;
+        background-color: #367c36;
+        color: white;
+        border: 3px solid #4a894a;
+      }
+
+    }
+  }
+
+}
