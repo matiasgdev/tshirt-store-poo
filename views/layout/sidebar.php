@@ -24,6 +24,22 @@
     <div class="Main__aside__block--links">
       <a href="" class="order-item"> Mis pedidos</a>
     <?php endif; ?>
+    
+    <div class="Cart">
+
+      <h2 class="Cart__title">Mi carrito de compras</h2>
+
+      <!-- stats of cart -->
+      <?php $stats = Utils::cartStats(); ?>
+      <ul class="Cart__list">
+        <li>Cantidad: <?= $stats['count'].' items' ?> </li>
+        <li>Total: <?= '$  '.$stats['total'] ?> </li>
+      </ul>
+      <a href="<?= BASE_URL ?>cart/index" >
+        Ver carrito 
+      </a>
+
+    </div>
 
       <!-- if admin -->
       <?php if (isset($_SESSION['admin'])): ?>

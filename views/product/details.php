@@ -35,9 +35,10 @@
          $<?= $productById->price; ?> 
       </p>
       
-      <a class="Product__details--buy">
+      <a href="<?= BASE_URL . 'cart/add&id=' . $productById->id?>" class="Main__products--item--link Product__details--buy"> Añadir al carro </a>
+      <!-- <a class="Product__details--buy">
          Comprar 
-      </a>
+      </a> -->
     </div>
   </article>
 

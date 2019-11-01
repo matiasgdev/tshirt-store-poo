@@ -27,4 +27,20 @@
       return $category->getAll();
 
     }
+
+    public static function cartStats() {
+      $stats = array(
+        'count' => 0,
+        'total' => 0
+      );
+      if ($_SESSION['cart']) {
+        $stats['count'] = count($_SESSION['cart']);
+
+        foreach($_SESSION['cart'] as $index => $product) {
+          $stats['total'] += $product['price'] * $product['units'];
+        }
+      }
+
+      return $stats;
+    }
   }

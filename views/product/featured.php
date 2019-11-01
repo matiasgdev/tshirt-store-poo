@@ -23,7 +23,7 @@
 
     <p class="Main__products--item--price"> $<?= $product->price; ?> </p>
 
-    <a class="Main__products--item--link"> Comprar </a>
+    <a href="<?= BASE_URL . 'cart/add&id=' . $product->id?>" class="Main__products--item--link"> Añadir al carro </a>
 
   </article>
   <?php endwhile; ?>
