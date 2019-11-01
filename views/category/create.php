@@ -7,7 +7,7 @@
 <?php elseif(isset($_SESSION['category-error'])): ?>
 
   <span> Error al crear la categoría </span>
-
+  
 <?php endif; ?>
 
 <form 
@@ -16,7 +16,7 @@
 >
   <label for="name"> Nombre </label>
   <br/>
-  <input type="text" name="name">
+  <input type="text" name="name" autofocus>
 
   <button> Guardar </button>
 

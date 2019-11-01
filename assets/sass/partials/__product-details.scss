@@ -1,0 +1,65 @@
+.Product {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  box-shadow: 0px 0px 15px rgba($color: (#747474), $alpha: .1);
+
+  &__imageContainer {
+    flex-basis: 40%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--image {
+      width: 80%;
+      height: 80%;
+
+    }
+  }
+
+  &__details {
+    width: 60%;
+    flex-basis: 60%;
+    padding: 2rem;
+    position: relative;
+
+    > * {
+      margin: 1rem 0px;
+      color: mix(white, $fc-primary, 30%);
+    }
+
+    span {
+      font-weight: bold;
+      text-decoration: underline;
+
+    }
+
+    &--description, &--price, &--name {
+      margin-left: .5rem;
+    }
+
+    &--description {
+      font-size: .9rem;
+    }
+
+    &--price {
+      display: inline-block;
+      color: green;
+    }
+
+    &--buy {
+      display: block;
+      text-align: center;
+      width: 150px;
+      padding: .5rem 1rem;
+      background: #0fbb0f;
+      color:white;
+      position: absolute;
+      bottom: 2rem;
+      right: 3rem;
+    }
+
+  }
+
+}

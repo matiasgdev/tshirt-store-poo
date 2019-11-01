@@ -67,7 +67,7 @@
     }
 
     public function setDescription($description) {
-      $this->description = $this->db->real_escape_string($description);
+      $this->description = trim($this->db->real_escape_string($description));
     }
 
     public function setPrice($price) {
@@ -90,6 +90,13 @@
       $this->image = $image;
     }
 
+    private function isImageCreated() {
+      if ($this->getImage() != null) {
+        return $this->getImage();
+      }
+      return false;
+    }
+
     public function getAll() {
 
       $products = $this->db->query("SELECT * FROM products ORDER BY id ASC");
@@ -97,14 +104,38 @@
       return $products;
     }
 
+    public function getAllByCategory() {
+
+      $query = "SELECT p.*, c.name AS 'category_name'"
+              ." FROM products p"
+              ." INNER JOIN categories c ON c.id = p.category_id"
+              ." WHERE p.category_id = {$this->getCategoryId()}"
+              ." ORDER BY id ASC";
+      
+      $products = $this->db->query($query);
+
+      return $products;
+    }
+
+    public function getOne() {
+      $product = $this->db->query("SELECT * FROM products WHERE id = {$this->getId()}");
+
+      return $product->fetch_object();
+    }
+
+    public function getRandom($limit) {
+
+      $products = $this->db->query("SELECT * FROM products ORDER BY RAND() LIMIT $limit");
+
+      return $products;
+    }
+
+
     public function save() {
 
-      $query = "INSERT INTO products 
-            VALUES (NULL, '{$this->getCategoryId()}', '{$this->getName()}', 
-            '{$this->getDescription()}', {$this->getPrice()}, {$this->getStock()},
-            NULL, CURDATE(), '{$this->getImage()}');"; 
-
+      $query = "INSERT INTO products VALUES (NULL, {$this->getCategoryId()}, '{$this->getName()}', '{$this->getDescription()}', {$this->getPrice()}, {$this->getStock()}, NULL, CURDATE(), '{$this->isImageCreated()}')"; 
       $save = $this->db->query($query);
+
 
       $result = false;
 
@@ -115,5 +146,42 @@
       return $result;
     }
 
+    public function delete() {
+
+
+      $query = "DELETE FROM products WHERE id={$this->id}";
+
+      $isDeleted = $this->db->query($query);
+
+      if ($isDeleted) {
+        return true;
+      } else {
+        return false;
+      }
+
+    }
+
+    public function update() {
+
+      $image = $this->isImageCreated();
+
+      // query
+      $query = "UPDATE products SET 
+          name ='{$this->getName()}',
+          category_id={$this->getCategoryId()},
+          description = '{$this->getDescription()}',
+          price = {$this->getPrice()},
+          stock = {$this->getStock()}";
+
+      if ($image) {
+        $query .= ", image='$image'";
+      }
+
+      $query.=" WHERE id=".$this->getId();
+
+      $product = $this->db->query($query);
+
+      return $product;
+    }
     
   }

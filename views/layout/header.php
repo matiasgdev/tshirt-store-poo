@@ -30,7 +30,7 @@
         <?php $categoreis =  Utils::showCategories(); ?>
         <?php while($category = $categoreis->fetch_object()): ?>
           <li class="Nav__list--link">
-            <a href=""> <?= $category->name; ?> </a>
+            <a href="<?= BASE_URL. 'category/show&id=' . $category->id ?>"> <?= $category->name; ?> </a>
           </li>
         <?php endwhile; ?>
         

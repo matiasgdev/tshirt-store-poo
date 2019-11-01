@@ -29,6 +29,13 @@
       $result = $this->db->query("SELECT * FROM categories ORDER BY id ASC");
       return $result;
     }
+    public function getOne() {
+
+      $result = $this->db->query("SELECT * FROM categories WHERE id={$this->getId()}");
+      return $result->fetch_object();
+    }
+
+
 
     public function save() {
       $query = "INSERT INTO categories 
