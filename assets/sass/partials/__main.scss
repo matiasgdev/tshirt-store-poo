@@ -1,8 +1,6 @@
 .Main {
   display: flex;
   font-family: $f-primary;
-  height: 100vh;
-  overflow-y: scroll;
   
   &__aside {
      flex-basis: 25%;
@@ -88,11 +86,11 @@
   &__main {
     padding: 2rem;
     width: 100%;
+    min-height: 100vh;
     &--title {
       text-align: center;
       padding-bottom: 1rem;
-      border-bottom: 1px solid #fff0f0;
-      margin-bottom: 2rem;
+      border-bottom: 1px solid #4747471f;
       color: $b-secondary;
     }
     &--table {

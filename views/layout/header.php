@@ -7,6 +7,8 @@
   <title> Tienda de Remeras </title>
   <!-- CSS CUSTOM -->
   <link rel="stylesheet" href="<?=BASE_URL?>assets/css/bundle.css" />
+  <!-- FONT-AWESOME -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"> </script>
 </head>
 <body>
   <!-- HEADER -->

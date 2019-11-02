@@ -8,7 +8,7 @@
 
   <div class="Cart__container">
 
-    <table>
+    <table class="Cart__form">
       <thead>
         <tr>
           <th> Imagen </th>
@@ -22,38 +22,40 @@
         <?php foreach($cart as $index => $item): ?>
           <?php $product = $item['product'];  ?>
 
-          <tr>
-
-            <td> <!-- Image -->
-              <?php if($product->image != null): ?>
-                <img
-                src="<?=BASE_URL?>uploads/images/<?= $product->image ?>" 
-                alt="Remera logo"
-                height="50px"
-                >
-              <?php else: ?>
-                <img
-                src="<?=BASE_URL?>assets/img/remera.png" 
-                alt="Remera logo"
-                height="50px"
-                >
-              <?php endif; ?> 
-            </td>
-
-            <td>
-              <?= $product->name ?>
-            </td>
+            <tr class="tr-hover">
             
-            <td>
-              $<?= $product->price ?>
-            </td>
-
-            <td>
-              <?= $item['units'] ?>
-            </td>
-
-
-          </tr>
+              <td> <!-- Image -->
+                <?php if($product->image != null): ?>
+                  <img
+                  src="<?=BASE_URL?>uploads/images/<?= $product->image ?>" 
+                  alt="Remera logo"
+                  height="50px"
+                  >
+                <?php else: ?>
+                  <img
+                  src="<?=BASE_URL?>assets/img/remera.png" 
+                  alt="Remera logo"
+                  height="50px"
+                  >
+                <?php endif; ?> 
+              </td>
+            
+              <td>
+                <a href="<?= BASE_URL . 'product/details&id=' . $product->id ?>" class="resalt--file">
+                  <?= $product->name ?>
+                </a>
+              </td>
+              
+              <td>
+                $<?= $product->price ?>
+              </td>
+            
+              <td>
+                <?= $item['units'] ?>
+              </td>
+            
+            
+            </tr>
 
         <?php endforeach; ?>
 
@@ -66,6 +68,6 @@
     
   </div>
   
-<a href="<?= BASE_URL. 'order/do' ?>">Hacer pedido</a>
+<a href="<?= BASE_URL. 'order/do' ?>">Realizar pedido</a>
 
 </section>

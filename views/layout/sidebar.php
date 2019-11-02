@@ -27,7 +27,10 @@
     
     <div class="Cart">
 
-      <h2 class="Cart__title">Mi carrito de compras</h2>
+      <header class="Cart__header">
+        <i class="Cart--icon fas fa-shopping-cart"></i>
+        <h2 class="Cart__title">Mi carro</h2>
+      </header>
 
       <!-- stats of cart -->
       <?php $stats = Utils::cartStats(); ?>

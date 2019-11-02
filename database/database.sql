@@ -68,6 +68,7 @@ CREATE TABLE orders_line (
   id           int(255) AUTO_INCREMENT NOT NULL,
   order_id     int(255) not null,
   product_id   int(255) not null,
+  units        int(255),
   
   CONSTRAINT pk_orders_line PRIMARY KEY (id),
   CONSTRAINT fk_order_line FOREIGN KEY (order_id) REFERENCES orders(id),
