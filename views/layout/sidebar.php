@@ -22,7 +22,7 @@
         <a href=<?= BASE_URL . 'user/logout' ?> > Cerrar sesión </a>
       </span>
     <div class="Main__aside__block--links">
-      <a href="" class="order-item"> Mis pedidos</a>
+      <a href="<?= BASE_URL . 'order/my_orders' ?>" class="order-item"> Mis pedidos</a>
     <?php endif; ?>
     
     <div class="Cart">
@@ -47,7 +47,7 @@
       <!-- if admin -->
       <?php if (isset($_SESSION['admin'])): ?>
         <h4 class="admin">Panel admin</h4>
-        <a href="">> Gestionar pedidos</a>
+        <a href="<?= BASE_URL . 'order/management' ?>">> Gestionar pedidos</a>
         <a href="<?= BASE_URL ?>product/management">> Gestionar productos</a>
         <a href="<?= BASE_URL ?>category/index">> Gestionar categorias</a>
       <?php endif; ?>

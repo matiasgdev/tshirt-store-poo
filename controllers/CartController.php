@@ -6,8 +6,11 @@ require_once 'models/productModel.php';
     
     public function index() {
       
-      
-      $cart = ($_SESSION['cart']);
+      if (isset($_SESSION['cart'])) {
+        $cart = ($_SESSION['cart']);
+      } else {
+        $cart = array();
+      }
       
       require_once 'views/cart/index.php';
     }
@@ -38,7 +41,7 @@ require_once 'models/productModel.php';
       } 
       
       // if cart not exists
-      if (!$counter or $counter == 0) {
+      if (!isset($counter) or $counter == 0) {
 
         $product = new Product();
 
@@ -63,12 +66,54 @@ require_once 'models/productModel.php';
 
     public function remove() {
 
+      if (isset($_GET['index'])) {
+
+        $index = $_GET['index'];
+
+        unset($_SESSION['cart'][$index]);
+
+        header("Location:". BASE_URL . 'cart/index');
+
+      }
+
     }
 
-    public function delete() {
+    public function delete_all() {
       unset($_SESSION['cart']);
       header("Location:". BASE_URL . 'cart/index');
     }
+
+    public function up() {
+
+      if (isset($_GET['index'])) {
+
+        $index = $_GET['index'];
+
+        $_SESSION['cart'][$index]['units']++;
+
+        header("Location:". BASE_URL . 'cart/index');
+
+      }
+
+    }
+    public function down() {
+
+      if (isset($_GET['index'])) {
+
+        $index = $_GET['index'];
+
+        $_SESSION['cart'][$index]['units']--;
+
+        if ($_SESSION['cart'][$index]['units'] == 0) {
+          unset($_SESSION['cart'][$index]);
+        }
+
+        header("Location:". BASE_URL . 'cart/index');
+
+      }
+
+    }
+    
 
 
   }

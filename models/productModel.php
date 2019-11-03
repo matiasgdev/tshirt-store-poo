@@ -149,10 +149,10 @@
     public function delete() {
 
 
-      $query = "DELETE FROM products WHERE id={$this->id}";
+      $query = "DELETE FROM products WHERE id={$this->getId()}";
 
       $isDeleted = $this->db->query($query);
-
+      die();
       if ($isDeleted) {
         return true;
       } else {

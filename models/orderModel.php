@@ -70,7 +70,7 @@
     }
 
     public function setStatus($status) {
-      $this->status = $status;
+      $this->status = trim($this->db->real_escape_string($status));
     }
 
 
@@ -86,9 +86,21 @@
 
     public function getAll() {
 
-      $orders = $this->db->query("SELECT * FROM orders ORDER BY id ASC");
+      $orders = $this->db->query("SELECT * FROM orders ORDER BY id DESC");
 
       return $orders;
+    }
+
+    public function getAllByUser() {
+
+      $query = "SELECT * FROM orders"
+                ." WHERE user_id = {$this->getUserId()}"
+                ." ORDER BY id DESC";
+      
+      $orders = $this->db->query($query);
+
+      return $orders;
+
     }
 
     public function getOne() {
@@ -170,6 +182,18 @@
       return $result;
 
     }
+
+    public function updateStatus() {
+
+      // query
+      $query = "UPDATE orders SET status = '{$this->status}' WHERE id={$this->getId()}";
+
+      $order = $this->db->query($query);
+
+      return $order;
+    }
+
+    
 
     
     

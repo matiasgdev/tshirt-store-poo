@@ -244,6 +244,7 @@
         $product = new Product();
 
         $id = $_GET['id'];
+
     
         $product->setId($id);
 

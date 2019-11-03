@@ -4,14 +4,13 @@
   require_once 'autoload.php';
   require_once 'config/Database.php';
   require_once 'config/parameters.php';
-  /* helpers */
+  /* HELPERS */
   require_once 'helpers/utils.php';
   /* HEADER */
   require_once 'views/layout/header.php';
   /* SIDEBAR */
   require_once 'views/layout/sidebar.php';
 
-  /* database connect */
 
   /* ERROR PAGES */
   function showPageError() {
@@ -19,7 +18,7 @@
     $error->index();
   }
 
-  //  front controller
+  //  
   if (isset($_GET['controller'])){
     $controllerName = $_GET['controller'].'Controller';
   }

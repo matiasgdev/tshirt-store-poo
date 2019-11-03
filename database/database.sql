@@ -72,7 +72,7 @@ CREATE TABLE orders_line (
   
   CONSTRAINT pk_orders_line PRIMARY KEY (id),
   CONSTRAINT fk_order_line FOREIGN KEY (order_id) REFERENCES orders(id),
-  CONSTRAINT fk_product_line FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+  CONSTRAINT fk_product_line FOREIGN KEY (product_id) REFERENCES products(id) 
 
 )ENGINE=InnoDb;
 

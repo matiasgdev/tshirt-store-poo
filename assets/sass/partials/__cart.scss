@@ -47,6 +47,11 @@
     }
   }
 
+  &__delete {
+    float:right;
+
+  }
+
 }
 
 .Cart__form {
@@ -61,12 +66,31 @@
 
   .tr-hover {
     border-bottom: 1px solid rgba(gray,0.2);
-    cursor: pointer;
     &:hover {
       box-shadow: 0px 0px 0px 1px rgba(gray,0.2);
       .resalt--file {
         text-decoration: underline;
       }
+    }
+  }
+
+  &--remove {
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &--units {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    a {
+      font-size: 1rem;
+    }
+    > * {
+      font-weight: bold;
+      margin-left: .4rem;
     }
   }
 

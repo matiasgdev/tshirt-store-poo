@@ -381,6 +381,9 @@ body, html {
   box-shadow: none !important;
   text-decoration: underline;
 }
+.Cart__delete {
+  float: right;
+}
 
 .Cart__form {
   width: 100%;
@@ -392,13 +395,28 @@ body, html {
 }
 .Cart__form .tr-hover {
   border-bottom: 1px solid rgba(128, 128, 128, 0.2);
-  cursor: pointer;
 }
 .Cart__form .tr-hover:hover {
   box-shadow: 0px 0px 0px 1px rgba(128, 128, 128, 0.2);
 }
 .Cart__form .tr-hover:hover .resalt--file {
   text-decoration: underline;
+}
+.Cart__form--remove a {
+  width: 100%;
+  text-align: center;
+}
+.Cart__form--units {
+  height: inherit;
+  display: flex;
+  justify-content: center;
+}
+.Cart__form--units a {
+  font-size: 1rem;
+}
+.Cart__form--units > * {
+  font-weight: bold;
+  margin-left: 0.4rem;
 }
 
 .Footer {
@@ -416,6 +434,9 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.Do--order {
+  cursor: pointer;
 }
 .Do__title {
   margin-top: 0.5rem;
@@ -451,6 +472,48 @@ body, html {
 }
 .Do__form button:hover {
   color: white;
+}
+
+.Cart__form a {
+  color: #414141;
+}
+.Cart__form a:hover {
+  text-decoration: underline;
+}
+
+.Order__data__management {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+.Order__data__management form {
+  margin-left: 0.5rem;
+  flex-grow: 0.7;
+  display: flex;
+  align-items: center;
+}
+.Order__data__management form select {
+  width: 100%;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  color: gray;
+  margin-right: 0.5rem;
+}
+.Order__data__management form select option {
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+  color: gray;
+}
+.Order__data__management form button {
+  padding: 0.3rem 0.6rem;
+  background: cornflowerblue;
+  color: white;
+  border: 1px solid gray;
+  outline: none;
+  cursor: pointer;
+}
+.Order__data__management form button:hover {
+  background: #5a86d5;
 }
 
 /*# sourceMappingURL=bundle.css.map */

@@ -84,5 +84,87 @@
       require_once 'views/order/confirm.php';
     }
 
+    public function my_orders() {
+
+      Utils::isLogged();
+
+      $userId = $_SESSION['user']->id;
+
+      $order = new Order();
+      $order->setUserId($userId);
+      // get all orders by users
+      
+      $orders = $order->getAllByUser();
+
+
+      require_once 'views/order/myOrders.php';
+    }
+
+    public function details() {
+
+      Utils::isLogged();
+
+      if (isset($_GET['id'])) {
+
+        $id = $_GET['id'];
+        
+        
+        $order = new Order();
+
+        //get order
+        $order->setId($id);
+
+        $order = $order->getOne($id);
+        
+        //get data of products by order
+        $products = new Order();
+
+        $productsByOrder = $products->getProductsByOrder($id);
+
+
+      } else {
+        header("Location:" . BASE_URL . 'order/my_orders');
+      }
+
+      require_once 'views/order/details.php';
+    }
+
+    public function management() {
+
+      Utils::isAdmin();
+
+      $management = true;
+
+      $order = new Order();
+      $orders = $order->getAll();
+      
+
+      require_once 'views/order/myOrders.php';
+    }
+
+    public function status() {
+      Utils::isAdmin();
+
+      if (isset($_POST['orderId']) and isset($_POST['status'])) {
+
+        $id = $_POST['orderId'];
+        $status = $_POST['status'];
+
+        // order update
+        $order = new Order();
+
+        $order->setId($id);
+        $order->setStatus($status);
+
+        $order->updateStatus();
+
+        header("Location:" . BASE_URL . 'order/details&id='.$id);
+
+      } else {
+        header("Location:" . BASE_URL);
+        return;
+      }
+    }
+
   }
 ?>

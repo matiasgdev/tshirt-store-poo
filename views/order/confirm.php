@@ -8,7 +8,7 @@
       Una vez que realices la transferencia bancaria a <small>2358881303840139888803491</small>  con el coste
       del pedido. Será procesado y enviado.
     </p>
-    <t class="Order__data">
+    <div class="Order__data">
 
       <h3>Datos del pedido</h3>
       <?php if(isset($orderByUser)):?>
@@ -17,7 +17,7 @@
           <li>Total a pagar: $ <?= $orderByUser->cost ?> </li>
         </ul>
 
-
+  
         <!-- Products of order -->
         <h4>Productos </h4>
 
@@ -61,7 +61,7 @@
               </td>
             
               <td>
-                <?= $product->id ?>
+                <?= $product->units ?>
               </td>
             
             
