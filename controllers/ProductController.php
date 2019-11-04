@@ -107,27 +107,20 @@
 
           } 
           
-          // save or update
-          
           $productIsSaved = $product->save();
 
 
           if ($productIsSaved) {
             $_SESSION['product'] = true;
-            require_once 'views/product/create.php';
           } else {
             $_SESSION['product-error'] = 'Inserción fallida. No se pudo ingresar este producto.';
-            header("Location:". BASE_URL . 'product/create' );
-            return;
           }
 
         } else {
           $_SESSION['product-error'] = 'Inserción fallida. Ingrese todos los datos.';
-          header("Location:". BASE_URL . 'product/create' );
-          return;
         }
 
-      header("Refresh: 2, URL=". BASE_URL . 'product/management' );
+        header("Location:". BASE_URL . 'product/create' );
 
       }
     }
@@ -244,7 +237,6 @@
         $product = new Product();
 
         $id = $_GET['id'];
-
     
         $product->setId($id);
 
@@ -259,7 +251,6 @@
       } else {
         $_SESSION['product-error'] = 'Error al borrar el producto';
       }
-
       header("Location:". BASE_URL . 'product/management');
       
     }
